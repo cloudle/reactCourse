@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 
-class App extends React.Component {
+var App = React.createClass({
   render() {
     return (
       <div>
@@ -15,6 +15,6 @@ class App extends React.Component {
       </div>
     )
   }
-}
+});
 
 export default App
