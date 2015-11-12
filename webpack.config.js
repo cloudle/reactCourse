@@ -1,18 +1,27 @@
+var path = require('path');
+var webpack = require('webpack');
+
 module.exports = {
-  entry: "./app/config/routes.js",
-  output: {
-    filename: "public/bundle.js"
-  },
   devtool: "#eval-source-map",
+  entry: [
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
+    "./app/configs/routes"
+  ],
+  output: {
+    path: path.join(__dirname, 'public'),
+    filename: "bundle.js",
+    publicPath: '/public/'
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   module: {
     loaders: [
       {
-        test: /\.js?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
-        }
+        test: /\.js$/,
+        loaders: ['react-hot', 'babel'],
+        exclude: /(node_modules|public)/
       }
     ]
   }

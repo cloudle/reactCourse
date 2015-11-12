@@ -1,13 +1,11 @@
 import React from 'react'
 import {render} from 'react-dom'
 import {Router, Route, IndexRoute} from 'react-router'
-import App from '../components/App'
+import App  from '../components/App'
 import Main from '../components/Main'
 import Home from '../components/Home'
 
-function logs() {
-  console.log('logs');
-}
+import Cloud from '../new'
 
 var routes = (
   <Router>
