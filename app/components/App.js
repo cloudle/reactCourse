@@ -7,14 +7,16 @@ var App = React.createClass({
   },
   componentWillMount() {
     console.log('WillMount?', this.state.count);
-    setInterval(() => {
-      this.setState({count: this.state.count + 1});
-    }, 1000);
+    setInterval(this.tick, 1000);
   },
+  tick() {
+    this.setState({count: this.state.count + 1});
+  },
+
   render() {
     return (
       <div>
-        <h1>My Awesome App!!! {'{'+this.state.count+'}'}</h1>
+        <h1>My awesomeApp! {'{'+this.state.count+'}'}</h1>
         <ul>
           <li><Link to="/">Main</Link></li>
           <li><Link to="/home">Home</Link></li>

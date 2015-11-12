@@ -5,8 +5,6 @@ import App  from '../components/App'
 import Main from '../components/Main'
 import Home from '../components/Home'
 
-import Cloud from '../new'
-
 var routes = (
   <Router>
     <Route path="/" component={App} >
