@@ -12,8 +12,12 @@ import App  from '../components/App'
 import Parent from '../components/Parent'
 import Main from '../components/Main'
 import Home from '../components/Home'
+import applicationReducer from '../reducers/application'
 
-const reducer = combineReducers({router: routerStateReducer});
+const reducer = combineReducers({
+  router: routerStateReducer,
+  application: applicationReducer
+});
 
 const store = compose(
   //applyMiddleware(),
@@ -28,19 +32,20 @@ class Root extends Component {
         <ReduxRouter>
           <Route path="/" component={App} >
             <Route path="home" component={Home} />
+            <Route path="parent" component={Parent} />
+            <Route path="parent/:id" component={Parent} />
             <IndexRoute component={Main} />
           </Route>
         </ReduxRouter>
       </Provider>
 
       <DebugPanel top right bottom>
-        <DevTools store={store} monitor={LogMonitor} />
+        <DevTools store={store} visibleOnLoad={false} monitor={LogMonitor} />
       </DebugPanel>
     </div>)
   }
 }
 
-global.App = App;
-global.Name = "Cloud";
+global.Dispatch = store.dispatch;
 
 render(<Root />, document.getElementById('app'));
