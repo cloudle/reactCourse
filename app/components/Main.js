@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-var Main = React.createClass({
+export default class Main extends Component {
   render() {
     return (
       <div>
@@ -8,6 +8,4 @@ var Main = React.createClass({
       </div>
     )
   }
-});
-
-export default Main
+};
