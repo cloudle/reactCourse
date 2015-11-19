@@ -5,7 +5,10 @@ import {pushState} from 'redux-router'
 
 import {changeName} from '../actions/applicationActions'
 
-//@connect((state) => ({}))
+let mapState = (state) => ({
+  name: state.application.name
+});
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -44,4 +47,4 @@ class App extends Component {
   }
 }
 
-export default connect((state) => ({name: state.application.name}))(App)
+export default connect(mapState)(App);
