@@ -6,6 +6,7 @@ import {Router, Route, IndexRoute} from 'react-router'
 import {devTools} from 'redux-devtools'
 import {createHistory} from 'history'
 
+import './styles/entry.styl'
 import Root from './configs/routes'
 import applicationReducer from './reducers/application'
 
