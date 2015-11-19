@@ -49,3 +49,16 @@ class Root extends Component {
 global.Dispatch = store.dispatch;
 
 render(<Root />, document.getElementById('app'));
+
+import falcor from 'falcor'
+import httpDataSource from 'falcor-http-datasource'
+
+var model = new falcor.Model({source: new httpDataSource('/model.json')});
+
+model.get("events[0..3]['name', 'description']").then((results) => {
+  var items = results.json.events;
+
+  for (let i of Object.keys(items)) {
+    console.log(items[i]);
+  }
+});

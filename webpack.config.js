@@ -4,14 +4,14 @@ var webpack = require('webpack');
 module.exports = {
   devtool: "#eval-source-map",
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
+    'webpack-dev-server/client?http://localhost:3005',
+    'webpack/hot/dev-server',
     "./app/configs/routes"
   ],
   output: {
     path: path.join(__dirname, 'public'),
     filename: "bundle.js",
-    publicPath: '/public/'
+    publicPath: 'http://localhost:3005/build/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
@@ -21,7 +21,7 @@ module.exports = {
       {
         test: /\.js$/,
         loaders: ['react-hot', 'babel'],
-        exclude: /(node_modules|public)/
+        exclude: /(node_modules|build)/
       }
     ]
   }

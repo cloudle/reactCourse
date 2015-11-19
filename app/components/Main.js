@@ -4,7 +4,7 @@ export default class Main extends Component {
   render() {
     return (
       <div>
-        Hello, this is React!!
+        Hello, this is React!
       </div>
     )
   }
