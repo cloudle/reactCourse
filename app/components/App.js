@@ -3,6 +3,9 @@ import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import {pushState} from 'redux-router'
 
+import LeftPane from './layout/LeftPane'
+import RightPane from './layout/RightPane'
+
 import {changeName} from '../actions/applicationActions'
 
 let mapState = (state) => ({
@@ -29,8 +32,10 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div>
+    return (<div className="app-wrapper">
+      <LeftPane />
+
+      <div className="app-contents">
         <h1>My awesomeApp! {this.props.name}</h1>
         <span>{JSON.stringify(Object.keys(this.props))}</span>
         <ul>
@@ -43,7 +48,9 @@ class App extends Component {
 
         {this.props.children}
       </div>
-    )
+
+      <RightPane />
+    </div>)
   }
 }
 

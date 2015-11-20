@@ -12,7 +12,7 @@ import applicationReducer from '../reducers/application'
 
 export default class Root extends Component {
   render() {
-    return (<div>
+    return (<div className="router-wrapper">
       <Provider store={this.props.store}>
         <ReduxRouter>
           <Route path="/" component={App} >

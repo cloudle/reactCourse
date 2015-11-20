@@ -23,7 +23,7 @@ const store = compose(
 
 global.Dispatch = store.dispatch;
 
-render(<Root store={store} />, document.getElementById('app'));
+render(<Root store={store} />, document.getElementById('application'));
 
 import falcor from 'falcor'
 import httpDataSource from 'falcor-http-datasource'
